@@ -1,6 +1,6 @@
 from flask_blog import db
 
-class User(db.Model):
+class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fullname = db.Column(db.String(80))
     email = db.Column(db.String(35), unique=True)
