@@ -16,8 +16,8 @@ pip install -r requirements.txt
 ```
 
 ### Create a /register form with WTF Forms
-- First add the route on the views (/user/register).
-- Create the templates/user folder.
+- First add the route on the views (/author/register).
+- Create the templates/author folder.
 - Create the _formhelpers.html
 - Create the register form.
 - Create the register view.

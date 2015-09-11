@@ -17,6 +17,6 @@ except:
 
 # Create tables for all models
 from flask_blog import db
-from user.models import *
+from author.models import *
 
 db.create_all()
