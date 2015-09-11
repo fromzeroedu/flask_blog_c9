@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}User Register{% endblock %}
+{% block title %}Author Register{% endblock %}
 
 {% block content %}
 
@@ -8,7 +8,7 @@
 
   <div class="col-md-offset-3 col-md-6">
 
-    <h3>User Registration</h3>
+    <h3>Author Registration</h3>
 
     {% from "_formhelpers.html" import render_field %}
     <form method="POST" action="{{ url_for('register')}}" role="form">
