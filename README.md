@@ -1,7 +1,8 @@
 ## Step #3
 
 ### Create the blog models.py
-- Create a blog table with the name and admin
+- Create a blog class with the name and admin
+- Add an email field to the author form
 - Add blog.models and run dbinit
 
 ### Create the admin route and check if there's a blog
