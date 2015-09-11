@@ -1,4 +1,4 @@
 flask
-mysql-python
+pymysql
 flask-sqlalchemy
 flask-script
