@@ -10,4 +10,5 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 from blog import views
-from user import views
+from author import views
+

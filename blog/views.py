@@ -2,9 +2,9 @@ from flask_blog import app
 from flask import render_template, redirect, flash, url_for
 from blog.form import SetupForm
 from flask_blog import db
-from user.models import User
+from author.models import Author
 from blog.models import Blog
-from user.decorators import login_required
+from author.decorators import login_required
 
 @app.route('/')
 @app.route('/index')
@@ -23,23 +23,23 @@ def admin():
 def setup():
     form = SetupForm()
     if form.validate_on_submit():
-        user = User(
+        author = Author(
             form.fullname.data,
             form.email.data,
             form.username.data,
             form.password.data,
             True
         )
-        db.session.add(user)
+        db.session.add(author)
         db.session.flush()
-        if user.id:
-            blog = Blog(form.name.data, user.id)
+        if author.id:
+            blog = Blog(form.name.data, author.id)
             db.session.add(blog)
             db.session.flush()
         else:
             db.session.rollback()
             error = "Error creating user"
-        if user.id and blog.id:
+        if author.id and blog.id:
             db.session.commit()
         else:
             db.session.rollback()
