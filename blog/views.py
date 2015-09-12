@@ -4,7 +4,7 @@ from blog.form import SetupForm
 from flask_blog import db
 from author.models import Author
 from blog.models import Blog
-from user.decorators import login_required
+from author.decorators import login_required
 
 @app.route('/')
 @app.route('/index')
