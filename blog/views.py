@@ -73,5 +73,10 @@ def post():
         post = Post(blog, author, title, body, category, slug)
         db.session.add(post)
         db.session.commit()
-        return redirect(url_for('admin'))
+        return redirect(url_for('article', slug=slug))
     return render_template('blog/post.html', form=form)
+    
+@app.route('/article/<slug>')
+def article(slug):
+    post = Post.query.filter_by(slug=slug).first_or_404()
+    return render_template('blog/article.html', post=post)
