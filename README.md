@@ -9,7 +9,9 @@ Passwords should be stored as hashes so that if a hacker gets access, he won't b
 - Do ```python manage.py db migrate```
 - Check the new file generated on migrations/versions
 - Do ```python manage.py db upgrade```
-- Go to /setup, and register. If you see the password in the db it's now a hash
+- Go to /setup, and register. 
+- Check on mysql and see the password in the db it's now a hash (also there's two users and two blogs now)
+- On mysql terminal, delete the first blog and the first user (try in reverse and see the foreign key error, and then in that order)
 - Add login functionality using hash to member/views/login (and add import bcrypt)
 - Add logout functionality on user/views
 - Add a temporary "Welcome, username - logout" on /admin
