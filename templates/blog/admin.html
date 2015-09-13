@@ -25,6 +25,18 @@
     <p>
         Welcome, {{ session['username'] }} - <a href="{{ url_for('logout') }}">logout</a>
     </p>
+    
+    <div class="post-list">
+      {% for post in posts %}
+      <div class="post-item">
+        <h4><a href="{{ url_for('article', slug=post.slug) }}">{{ post.title }}</a></h4>
+        <div class="text-muted">Posted by <a href="#">{{ post.author.fullname }}</a> on {{ post.publish_date.strftime('%Y-%m-%d') }} in <a href="#">{{ post.category.name }}</a>
+        </div>
+        <hr />
+      </div>
+      {% endfor %}
+    </div>
+    
   </div>
 
 </div>
