@@ -9,3 +9,4 @@
 - Add login_required decoraton on top of author_required on blog/views/admin
 - Add a footer with admin, login, logout on base.html
 - Take out login_success and redirect to index on user/views/login
+- Note: If you have posts without slugs, you'll get an error
