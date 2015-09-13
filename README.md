@@ -1,19 +1,44 @@
-## Step #7
+## Step #8
 
-### Create an author check on admin
-- Rework users code on login to use first() and single user instead of users
-- Add is_author to the session on login so we can check on it
-- Add a check of is_author on admin and return a 403 (not authorized) if not (import abort)
-- Try logging in and see that everything works
-- Set the user's is_author to False to test:
+### Creating the Post module
+- Add a function post on the blog/view
+- Create the blog post model and the blog category model
+   - NOTE: Columns are named 'author_id' and 'blog_id', otherwise the ORM fails if we pass the author as the parameter on the post
+- Add the db.backref to models.author
+- Do the migration:
+
 ```
->>> from author.models import *
->>> author = Author.query.first()
->>> author
-<Author u'jorge'>
->>> author.is_author
-True
->>> author.is_author = False
->>> db.session.commit()
+python manage.py db migrate
+python manage.py db upgrade
 ```
-- Now try to go to /admin -- you should get a 403
+
+- Let's create some posts:
+
+```
+python manage.py shell
+
+from author.models import *
+from blog.models import *
+
+category = Category('Python')
+db.session.add(category)
+db.session.commit()
+
+author = Author.query.first()
+blog = Blog.query.first()
+category = Category.query.first()
+post = Post(blog, author, 'Python is cool!', 'This is why Python is cool.', category)
+db.session.add(post)
+db.session.commit()
+
+category.posts.all()
+author.posts.all()
+blog.posts.all()
+```
+
+Let's delete the test records:
+```
+Post.query.delete()
+Category.query.delete()
+db.session.commit()
+```
