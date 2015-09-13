@@ -3,6 +3,10 @@
 ### Add an "author required" decorator
 - Change the admin @login_required to @author_required and take out the auto-setup and add blog check to /setup
 
+### Adding Markdown
+- Add flask-markdown in requirements.txt and pip install 
+- Add Markdown(app) to __init__.py
+
 ### Adding a Blog Post form and page
 - Add the PostForm to form.py
 - Create the function on the blog/view
