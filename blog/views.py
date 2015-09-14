@@ -17,6 +17,7 @@ POSTS_PER_PAGE = 5
 def index(page=1):
     blog = Blog.query.first()
     posts = Post.query.filter_by(live=True).order_by(Post.publish_date.desc()).paginate(page, POSTS_PER_PAGE, False)
+    return render_template('blog/index.html', blog=blog, posts=posts)
 
 @app.route('/admin')
 @app.route('/admin/<int:page>')
