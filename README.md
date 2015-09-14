@@ -1,7 +1,16 @@
-## Step #12
+## Step #13
 
-### Add pagination to admin and home page
-- Add pagination function on blog/views/admin and template
-- Add pagination function on blog/views/index and template
-- Add first few words to posts on blog/views/index
-- Add a hyperlink to index on Blog title
+### Add a photo to the post
+- Add flask-uploads to requirements.txt and install
+- Add UPLOADED_IMAGES_DEST and UPLOADED_IMAGES_URL to settings
+- Add upload_set config to __init__
+- Add upload to blog/views/post (NOTE: Add request to flask)
+- Add filefield to blog/forms
+- Add image to blog/models/post and do a migrate
+- Add a property to the blog/models/post for imgsrc
+- Add an image renderer on templates/blog/article
+- Add image on post list templates/blog/index (make sure to add class row)
+- Add image on admin list templates/blog/admin (make sure to add class row)
+- Create flash messages template
+- Add flash template to article view (for error uploads)
+- Add New Article link on admin
