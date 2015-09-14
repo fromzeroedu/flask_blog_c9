@@ -7,7 +7,7 @@ from blog.models import Blog, Post, Category
 from author.decorators import login_required, author_required
 import bcrypt
 from slugify import slugify
-from flaskext.uploads import UploadNotAllowed
+from flask_uploads.uploads import UploadNotAllowed
 
 POSTS_PER_PAGE = 5
 
