@@ -39,6 +39,7 @@ class Post(db.Model):
             self.title = title
             self.body = body
             self.category = category
+            self.image = image
             self.slug = slug
             if publish_date is None:
                 self.publish_date = datetime.utcnow()
