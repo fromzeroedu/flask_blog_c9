@@ -15,7 +15,11 @@
     {% endif %}
   
     <h3>{{ post.title }}</h3>
-
+    {% if session.get('is_author') %}
+      <a href="{{ url_for('edit', post_id=post.id) }}">Edit</a> -
+      <a href="{{ url_for('delete', post_id=post.id) }}">Delete</a>
+    {% endif %}
+    
     {{ post.body|markdown }}
 
     <hr />
