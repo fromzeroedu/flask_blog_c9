@@ -78,31 +78,31 @@ class UserTest(unittest.TestCase):
     # this allows unittest to automatically identify the method as a test to run.
     def test_create_blog(self):
         rv = self.create_blog()
-        assert 'Blog created' in rv.data
+        assert 'Blog created' in str(rv.data)
 
     def test_login_logout(self):
         self.create_blog()
         rv = self.login('jorge', 'test')
-        assert 'User jorge logged in' in rv.data
+        assert 'User jorge logged in' in str(rv.data)
         rv = self.logout()
-        assert 'User logged out' in rv.data
+        assert 'User logged out' in str(rv.data)
         rv = self.login('john', 'test')
-        assert 'User not found' in rv.data
+        assert 'Author not found' in str(rv.data)
         rv = self.login('jorge', 'wrong')
-        assert 'Incorrect password' in rv.data
+        assert 'Incorrect password' in str(rv.data)
 
     def test_admin(self):
         self.create_blog()
         self.login('jorge', 'test')
         rv = self.app.get('/admin', follow_redirects=True)
-        assert 'Welcome, jorge' in rv.data
+        assert 'Welcome, jorge' in str(rv.data)
         rv = self.logout()
         rv = self.register_user('John Doe', 'john@example.com', 'john', 'test', 'test')
-        assert 'Author registered!' in rv.data
+        assert 'Author registered!' in str(rv.data)
         rv = self.login('john', 'test')
-        assert 'User john logged in' in rv.data
+        assert 'User john logged in' in str(rv.data)
         rv = self.app.get('/admin', follow_redirects=True)
-        assert "403 Forbidden" in rv.data
+        assert "403 Forbidden" in str(rv.data)
 
 if __name__ == '__main__':
     unittest.main()
