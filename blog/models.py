@@ -28,7 +28,7 @@ class Post(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
     category = db.relationship('Category',
         backref=db.backref('posts', lazy='dynamic'))
-        
+
     @property
     def imgsrc(self):
         return uploaded_images.url(self.image)
@@ -43,6 +43,8 @@ class Post(db.Model):
             self.slug = slug
             if publish_date is None:
                 self.publish_date = datetime.utcnow()
+            else:
+                self.publish_date = publish_date
             self.live = live
 
     def __repr__(self):
