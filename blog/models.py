@@ -37,6 +37,8 @@ class Post(db.Model):
             self.slug = slug
             if publish_date is None:
                 self.publish_date = datetime.utcnow()
+            else:
+                self.publish_date = publish_date                
             self.live = live
 
     def __repr__(self):
