@@ -7,4 +7,4 @@ flask-migrate
 py-bcrypt
 python-slugify
 flask-markdown
--e git+git@github.com:fromzeroedu/flask_uploads.git#egg=flask_uploads
+-e git+https://github.com/fromzeroedu/flask_uploads.git#egg=flask_uploads 
