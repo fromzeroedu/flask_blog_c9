@@ -7,4 +7,4 @@ Flask-Migrate==1.6.0
 py-bcrypt==0.4
 python-slugify==1.1.4
 Flask-Markdown==0.3
--e git+https://github.com/fromzeroedu/flask_uploads.git#egg=flask_uploads
+Flask-Uploads
