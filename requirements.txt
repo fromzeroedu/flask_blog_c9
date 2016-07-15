@@ -1,10 +1,10 @@
-flask
-pymysql
-flask-sqlalchemy
-flask-script
-flask-wtf
-flask-migrate
-py-bcrypt
-python-slugify
-flask-markdown
--e git+https://github.com/fromzeroedu/flask_uploads.git#egg=flask_uploads
+Flask==0.10.1
+PyMySQL==0.6.7
+Flask-SQLAlchemy==2.1
+Flask-Script==2.0.5
+Flask-WTF==0.12
+Flask-Migrate==1.6.0
+py-bcrypt==0.4
+python-slugify==1.1.4
+Flask-Markdown==0.3
+Flask-Uploads==0.2.0
